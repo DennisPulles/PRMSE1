@@ -86,6 +86,10 @@ public class HomeFragment
         Log.d(LOG_TAG, "onMovieSelected at pos " + position);
 
         Intent intent = new Intent(getContext(), MovieDetailActivity.class);
+        intent.putExtra("moviePoster", mMovies.get(position).getPoster_path());
+        intent.putExtra("movieTitle", mMovies.get(position).getTitle());
+        intent.putExtra("movieId", mMovies.get(position).getId());
+        intent.putExtra("movieAdult", mMovies.get(position).getAdult());
         startActivity(intent);
     }
 }
