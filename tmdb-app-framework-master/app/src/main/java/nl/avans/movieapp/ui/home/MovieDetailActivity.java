@@ -49,10 +49,14 @@ public class MovieDetailActivity extends AppCompatActivity {
         TextView filmId = findViewById(R.id.text_view_film_detail_id);
         TextView filmAdult = findViewById(R.id.text_view_film_detail_adult);
 
-        Picasso.get().load(moviePoster).into(posterView);
+        Picasso.get().load(moviePoster).resize(1000,1200).centerInside().into(posterView);
         filmTitle.setText(movieTitle);
-        filmId.setText(Integer.toString(movieId));
-        filmAdult.setText(Boolean.toString(movieAdult));
+        filmId.setText("ID:" + Integer.toString(movieId));
+        if (movieAdult == true) {
+            filmAdult.setText("Deze film is alleen voor volwassenen.");
+        } else {
+            filmAdult.setText("Deze film is familievriendelijk.");
+        }
 
     }
 }
