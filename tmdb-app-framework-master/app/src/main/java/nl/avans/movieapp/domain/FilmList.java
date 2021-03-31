@@ -16,9 +16,21 @@ public class FilmList {
     public FilmList(String name, String username, ArrayList<Movie> films){
         this.name = name;
         this.username = username;
-        
+
         this.films = new ArrayList<>();
 
         this.films = films;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public ArrayList<Movie> getFilms() {
+        return films;
     }
 }
