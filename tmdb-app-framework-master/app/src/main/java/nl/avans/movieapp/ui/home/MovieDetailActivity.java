@@ -44,20 +44,40 @@ public class MovieDetailActivity extends AppCompatActivity {
         String movieTitle = intent.getStringExtra("movieTitle");
         int movieId = intent.getIntExtra("movieId", 0);
         boolean movieAdult = intent.getBooleanExtra("movieAdult", false);
+        String movieRelease = intent.getStringExtra("movieRelease");
+        String movieDescription = intent.getStringExtra("movieDescription");
+        String movieLanguage = intent.getStringExtra("movieLanguage");
+        int[] movieGenreIds = intent.getIntArrayExtra("movieGenreIds");
 
         ImageView posterView = findViewById(R.id.image_view_film_detail_image);
         TextView filmTitle = findViewById(R.id.text_view_film_detail_title);
-        TextView filmId = findViewById(R.id.text_view_film_detail_id);
+        TextView filmLanguage = findViewById(R.id.text_view_film_detail_language);
         TextView filmAdult = findViewById(R.id.text_view_film_detail_adult);
+        TextView filmRelease = findViewById(R.id.text_view_film_detail_release);
+        TextView filmDescription = findViewById(R.id.text_view_film_detail_description);
+        TextView filmGenres = findViewById(R.id.text_view_film_detail_genres);
 
         Picasso.get().load(moviePoster).resize(1000,1200).centerInside().into(posterView);
         filmTitle.setText(movieTitle);
-        filmId.setText("ID:" + Integer.toString(movieId));
         if (movieAdult == true) {
             filmAdult.setText("Deze film is alleen voor volwassenen.");
         } else {
             filmAdult.setText("Deze film is familievriendelijk.");
         }
+        filmLanguage.setText("Taal: " + movieLanguage);
+        filmRelease.setText("Releasedatum: " + movieRelease);
+        filmDescription.setText(movieDescription);
+
+        //Dit zijn genre ids, moet even uitvogelen hoe je die omzet naar genre-namen.
+        String genreIds = null;
+        for (int i = 0; i<movieGenreIds.length; i++) {
+            if (i==0) {
+                genreIds = Integer.toString(movieGenreIds[i]);
+            } else {
+                genreIds += ", " + Integer.toString(movieGenreIds[i]);
+            }
+        }
+        filmGenres.setText("Genres: " + genreIds);
 
     }
 }
