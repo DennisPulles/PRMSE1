@@ -59,7 +59,7 @@ public class MovieDetailActivity extends AppCompatActivity {
 
         Picasso.get().load(moviePoster).resize(1000,1200).centerInside().into(posterView);
         filmTitle.setText(movieTitle);
-        if (movieAdult == true) {
+        if (movieAdult) {
             filmAdult.setText("Deze film is alleen voor volwassenen.");
         } else {
             filmAdult.setText("Deze film is familievriendelijk.");
