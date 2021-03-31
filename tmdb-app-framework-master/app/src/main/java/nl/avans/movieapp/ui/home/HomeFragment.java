@@ -90,6 +90,10 @@ public class HomeFragment
         intent.putExtra("movieTitle", mMovies.get(position).getTitle());
         intent.putExtra("movieId", mMovies.get(position).getId());
         intent.putExtra("movieAdult", mMovies.get(position).getAdult());
+        intent.putExtra("movieRelease", mMovies.get(position).getReleaseDate());
+        intent.putExtra("movieDescription", mMovies.get(position).getOverview());
+        intent.putExtra("movieLanguage", mMovies.get(position).getOriginal_language());
+        intent.putExtra("movieGenreIds", mMovies.get(position).getGenreIds());
         startActivity(intent);
     }
 }
