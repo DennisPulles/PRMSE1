@@ -23,12 +23,12 @@ public class HomeGridAdapter
         extends RecyclerView.Adapter<HomeGridAdapter.MoviesGridViewHolder>
         implements MovieController.MovieControllerListener {
 
-    private final String LOG_TAG = this.getClass().getSimpleName();
+    private final String TAG = this.getClass().getSimpleName();
     private final ArrayList<Movie> moviesArrayList;
     private OnMovieSelectionListener listener;
 
     public HomeGridAdapter(ArrayList<Movie> moviesArrayList, OnMovieSelectionListener listener) {
-        Log.d(LOG_TAG, "Constructor aangeroepen");
+        Log.d(TAG, "Constructor aangeroepen");
         this.moviesArrayList = moviesArrayList;
         this.listener = listener;
     }
@@ -36,7 +36,7 @@ public class HomeGridAdapter
     @NonNull
     @Override
     public MoviesGridViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        Log.d(LOG_TAG, "onCreate aangeroepen");
+        Log.d(TAG, "onCreate aangeroepen");
 
         int layoutIdForListItem = R.layout.home_movies_grid_item;
         final boolean shouldAttachToParentImmediately = false;
@@ -48,7 +48,7 @@ public class HomeGridAdapter
     @Override
     public void onBindViewHolder(@NonNull MoviesGridViewHolder holder, int position) {
         Movie movie = moviesArrayList.get(position);
-        Log.d(LOG_TAG, movie.toString());
+        Log.d(TAG, movie.toString());
 
 //        holder.mMovieName.setText(movie.getTitle());
         Picasso.get()
@@ -65,7 +65,7 @@ public class HomeGridAdapter
 
     @Override
     public void onMoviesAvailable(List<Movie> movies) {
-        Log.d(LOG_TAG, "We have " + movies.size() + " items");
+        Log.d(TAG, "We have " + movies.size() + " items");
 
         this.moviesArrayList.clear();
         this.moviesArrayList.addAll(movies);
@@ -87,7 +87,7 @@ public class HomeGridAdapter
 
         @Override
         public void onClick(View view) {
-            Log.d(LOG_TAG, "onClick on item " + getAdapterPosition());
+            Log.d(TAG, "onClick on item " + getAdapterPosition());
             listener.onMovieSelected(getAdapterPosition());
         }
     }

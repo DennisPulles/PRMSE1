@@ -25,7 +25,7 @@ public class HomeFragment
         extends Fragment
         implements HomeGridAdapter.OnMovieSelectionListener {
 
-    private final String LOG_TAG = this.getClass().getSimpleName();
+    private final String TAG = this.getClass().getSimpleName();
 
     private final ArrayList<Movie> mMovies = new ArrayList<>();
     private RecyclerView mRecyclerView;
@@ -67,7 +67,7 @@ public class HomeFragment
                 new SwipeRefreshLayout.OnRefreshListener() {
                     @Override
                     public void onRefresh() {
-                        Log.i(LOG_TAG, "onRefresh called from SwipeRefreshLayout");
+                        Log.i(TAG, "onRefresh called from SwipeRefreshLayout");
 
                         // This method performs the actual data-refresh operation.
                         // The method calls setRefreshing(false) when it's finished.
@@ -83,7 +83,7 @@ public class HomeFragment
 
     @Override
     public void onMovieSelected(int position) {
-        Log.d(LOG_TAG, "onMovieSelected at pos " + position);
+        Log.d(TAG, "onMovieSelected at pos " + position);
 
         Intent intent = new Intent(getContext(), MovieDetailActivity.class);
         intent.putExtra("moviePoster", mMovies.get(position).getPoster_path());
