@@ -22,4 +22,10 @@
         android:name="nl.avans.movieapp.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/nav_film_list"
+        android:name="nl.avans.movieapp.ui.filmlists.FilmListFragment"
+        android:label="@string/menu_film_list"
+        tools:layout="@layout/fragment_film_list" />
+
 </navigation>
