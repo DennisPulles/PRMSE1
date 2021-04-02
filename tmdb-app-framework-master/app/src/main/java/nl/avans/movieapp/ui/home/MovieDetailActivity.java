@@ -80,6 +80,7 @@ public class MovieDetailActivity extends YouTubeBaseActivity{
         TextView filmRelease = findViewById(R.id.text_view_film_detail_release);
         TextView filmDescription = findViewById(R.id.text_view_film_detail_description);
         TextView filmGenres = findViewById(R.id.text_view_film_detail_genres);
+        Button ticketButton = findViewById(R.id.button_detail_ticket);
 
         Picasso.get().load(moviePoster).resize(1000,1200).centerInside().into(posterView);
         filmTitle.setText(movieTitle);
@@ -102,6 +103,12 @@ public class MovieDetailActivity extends YouTubeBaseActivity{
             }
         }
         filmGenres.setText("Genres: " + genreIds);
+
+        ticketButton.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     class TrailerLoader extends Thread {
