@@ -1,6 +1,7 @@
 package nl.avans.movieapp.ui.home;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,8 @@ import androidx.navigation.fragment.NavHostFragment;
 import nl.avans.movieapp.R;
 
 public class FirstFragment extends Fragment {
+
+    private final String TAG = this.getClass().getSimpleName();
 
     @Override
     public View onCreateView(
