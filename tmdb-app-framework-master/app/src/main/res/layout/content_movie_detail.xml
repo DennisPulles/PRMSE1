@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:class="http://schemas.android.com/tools"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <ScrollView
@@ -85,6 +86,14 @@
                 android:textColor="@android:color/white"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"/>
+
+            <com.google.android.youtube.player.YouTubePlayerView
+                android:id="@+id/youtube_player_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                class="com.google.android.youtube.player.YouTubePlayerView"
+                />
 
         </LinearLayout>
 
