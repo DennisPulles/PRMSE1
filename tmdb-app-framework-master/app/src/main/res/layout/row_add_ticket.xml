@@ -5,34 +5,47 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <EditText
-        android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:background="@drawable/button"
-        android:layout_height="40dp"
-        android:layout_marginHorizontal="8dp"
-        android:id="@+id/ticket_edit_text"/>
-
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/button">
+        android:background="@drawable/button"
+        android:layout_weight=".3">
 
         <androidx.appcompat.widget.AppCompatSpinner
             android:layout_width="150dp"
             android:layout_height="40dp"
-            android:id="@+id/ticket_spinner"/>
+            android:id="@+id/show_spinner"/>
 
     </FrameLayout>
 
-    <ImageView
-        android:id="@+id/ticket_remove"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_margin="8dp"
-        android:layout_gravity="center_vertical"
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@drawable/button"
-        android:src="@android:drawable/ic_menu_close_clear_cancel"
-        app:tint="@color/black" />
+        android:layout_weight=".3">
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:id="@+id/chair_spinner"/>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ticket_remove"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_margin="8dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/button"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            app:tint="@color/black" />
+
+    </FrameLayout>
+
 
 </LinearLayout>

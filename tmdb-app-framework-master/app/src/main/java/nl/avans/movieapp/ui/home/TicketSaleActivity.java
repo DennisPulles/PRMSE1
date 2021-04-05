@@ -25,17 +25,21 @@ public class TicketSaleActivity extends AppCompatActivity {
     LinearLayout layoutList;
     Button addbutton;
 
-    List<String> ticketList = new ArrayList<>();
+    List<String> chairList = new ArrayList<>();
+    List<String> showList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ticket_sale);
 
-        ticketList.add("Ticket1");
-        ticketList.add("Ticket2");
-        ticketList.add("Ticket3");
-        ticketList.add("Ticket4");
+        chairList.add("Ticket1");
+        chairList.add("Ticket2");
+        chairList.add("Ticket3");
+        chairList.add("Ticket4");
+
+        showList.add("Show1");
+        showList.add("Show2");
 
         Intent ticketIntent = getIntent();
         String movieTitle = ticketIntent.getStringExtra("movieTitle");
@@ -65,12 +69,15 @@ public class TicketSaleActivity extends AppCompatActivity {
 
         final View ticketView = getLayoutInflater().inflate(R.layout.row_add_ticket, null, false);
 
-        EditText editText = (EditText)ticketView.findViewById(R.id.ticket_edit_text);
-        AppCompatSpinner spinner = (AppCompatSpinner)ticketView.findViewById(R.id.ticket_spinner);
+        AppCompatSpinner showSpinner = (AppCompatSpinner)ticketView.findViewById(R.id.show_spinner);
+        AppCompatSpinner chairSpinner = (AppCompatSpinner)ticketView.findViewById(R.id.chair_spinner);
         ImageView image = (ImageView)ticketView.findViewById(R.id.ticket_remove);
 
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, ticketList);
-        spinner.setAdapter(arrayAdapter);
+        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, chairList);
+        chairSpinner.setAdapter(arrayAdapter);
+
+        ArrayAdapter showAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, showList);
+        showSpinner.setAdapter(showAdapter);
 
         image.setOnClickListener(new View.OnClickListener() {
             @Override
