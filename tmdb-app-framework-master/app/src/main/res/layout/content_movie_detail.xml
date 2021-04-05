@@ -14,7 +14,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
@@ -91,6 +91,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="128dp"
                 android:id="@+id/button_detail_ticket"
+                android:layout_marginTop="16dp"
+                android:background="@color/teal_700"
                 android:text="Buy Ticket"/>
 
             <com.google.android.youtube.player.YouTubePlayerView

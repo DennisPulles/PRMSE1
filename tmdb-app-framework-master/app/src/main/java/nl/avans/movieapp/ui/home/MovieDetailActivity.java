@@ -46,7 +46,7 @@ public class MovieDetailActivity extends YouTubeBaseActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_detail);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        //Toolbar toolbar = findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar); This is the toolbar at the top of the screen, but extending youtubebaseactivity breaks this.
 
         // Button commented out because it interrupts youtube video by being an overlay over the video. Youtube does not like that.
@@ -106,9 +106,16 @@ public class MovieDetailActivity extends YouTubeBaseActivity{
 
         ticketButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
-
+                openTicketSale(movieTitle, moviePoster);
             }
         });
+    }
+
+    public void openTicketSale(String movieTitle, String moviePoster) {
+        Intent ticketIntent = new Intent(this, TicketSaleActivity.class);
+        ticketIntent.putExtra("movieTitle", movieTitle);
+        ticketIntent.putExtra("moviePoster", moviePoster);
+        startActivity(ticketIntent);
     }
 
     class TrailerLoader extends Thread {

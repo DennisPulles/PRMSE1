@@ -3,11 +3,13 @@
     package="nl.avans.movieapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <queries>
         <intent>
-            <action android:name="com.google.android.youtube.api.service.START"/>
+            <action android:name="com.google.android.youtube.api.service.START" />
         </intent>
     </queries>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -15,10 +17,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AvansMovieApp">
+        <activity android:name=".ui.home.TicketSaleActivity"></activity>
         <activity
             android:name=".ui.home.MovieDetailActivity"
             android:label="@string/title_activity_movie_detail"
-            android:theme="@style/Theme.AvansMovieApp.NoActionBar"></activity>
+            android:theme="@style/Theme.AvansMovieApp.NoActionBar" />
         <activity
             android:name=".ui.settings.SettingsActivity"
             android:label="@string/title_activity_settings" />

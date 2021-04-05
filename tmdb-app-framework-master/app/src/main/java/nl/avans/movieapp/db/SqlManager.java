@@ -1,5 +1,7 @@
 package nl.avans.movieapp.db;
 
+import android.os.StrictMode;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -14,6 +16,10 @@ public class SqlManager {
 
     // executing the sql on the database with the allready created query
     public ResultSet executeSql(String query){
+
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
         String connectionUrl = "jdbc:jtds:sqlserver://aei-sql2.avans.nl:1443/;databaseName=B1MovieApp1;user=prms1B11;password=DiegoKorbijn";
 
         // Connection manages information about the connection with the database.
@@ -27,7 +33,7 @@ public class SqlManager {
 
         try {
             // 'Importeer' de driver die je gedownload hebt.
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            Class.forName("net.sourceforge.jtds.jdbc.Driver");
             // Create connection with the database.
             con = DriverManager.getConnection(connectionUrl);
 
