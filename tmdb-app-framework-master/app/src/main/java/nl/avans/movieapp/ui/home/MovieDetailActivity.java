@@ -21,10 +21,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import nl.avans.movieapp.R;
+import nl.avans.movieapp.db.ShowDAO;
+import nl.avans.movieapp.db.SqlManager;
 import nl.avans.movieapp.domain.Movie;
 import nl.avans.movieapp.domain.Trailer;
 import nl.avans.movieapp.service.MovieAPI;
@@ -103,6 +107,39 @@ public class MovieDetailActivity extends YouTubeBaseActivity{
             }
         }
         filmGenres.setText("Genres: " + genreIds);
+
+        ShowDAO showDAO = new ShowDAO();
+        SqlManager sqlManager = new SqlManager();
+
+        ResultSet resultSet = sqlManager.executeSql(showDAO.selectMovieIdShows());
+        ResultSet resultSet1 = sqlManager.executeSql(showDAO.selectAmountShows());
+        int showId = -1;
+
+        try {
+            ArrayList<Integer> movieIds = new ArrayList<>();
+
+            while (resultSet.next()) {
+                movieIds.add(resultSet.getInt(1));
+            }
+
+            if (!movieIds.contains(movieId)) {
+                String dateTime1 = "21:00, 6th of April 2021";
+                String dateTime2 = "19:00, 12th of April 2021";
+                String dateTime3 = "14:00, 17th of April 2021";
+                int roomNr1 = 1;
+                int roomNr2 = 2;
+                int roomNr3 = 3;
+                while (resultSet1.next()) {
+                    showId = resultSet1.getInt(1) + 1;
+                }
+                //int showId = sqlManager.executeSql(showDAO.selectAmountShows()).getInt(1) + 1;
+                sqlManager.executeSql(showDAO.insertShow(showId, movieId, roomNr1, dateTime3));
+                sqlManager.executeSql(showDAO.insertShow(showId+1, movieId, roomNr2, dateTime1));
+                sqlManager.executeSql(showDAO.insertShow(showId+2, movieId, roomNr3, dateTime2));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
 
         ticketButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
