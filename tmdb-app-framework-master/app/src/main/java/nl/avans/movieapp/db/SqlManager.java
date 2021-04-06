@@ -44,7 +44,9 @@ public class SqlManager {
         }
         // Handle any errors that may have occurred.
         catch (Exception e) {
-            e.printStackTrace();
+            if(!e.getMessage().equals("The executeQuery method must return a result set.")){
+                e.printStackTrace();
+            }
         } finally {
             if (rs != null)
                 try {

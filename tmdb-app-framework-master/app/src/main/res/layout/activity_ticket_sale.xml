@@ -43,12 +43,40 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="4dp" />
 
-            <Button
-                android:id="@+id/ticket_add_button"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+<!--                <Button-->
+<!--                    android:id="@+id/ticket_add_button"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="40dp"-->
+<!--                    android:text="Ticket toevoegen"-->
+<!--                    android:layout_margin="16dp" />-->
+
+                <Button
+                    android:id="@+id/ticket_buy_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:text="Bevestigen"
+                    android:layout_margin="16dp" />
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:text="Ticket toevoegen"
-                android:layout_margin="16dp" />
+                android:layout_margin="8dp"
+                android:id="@+id/show_spinner"
+                android:background="@drawable/button"/>
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="8dp"
+                android:id="@+id/chair_spinner"
+                android:background="@drawable/button"/>
 
         </LinearLayout>
 

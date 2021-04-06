@@ -1,28 +1,35 @@
 package nl.avans.movieapp.domain;
 
+import androidx.annotation.NonNull;
+
 import java.time.LocalDateTime;
 
 public class Show {
 
-    private Movie film;
-    private Room room;
-    private LocalDateTime dateTime;
+    private int showId;
+    private int movieId;
+    private int room;
+    private String dateTime;
 
-    public Show(Movie film, Room room, LocalDateTime dateTime) {
-        this.film = film;
+    public Show(int showId, int movieId, int room, String dateTime) {
+        this.showId = showId;
+        this.movieId = movieId;
         this.room = room;
         this.dateTime = dateTime;
     }
 
-    public Movie getFilm() {
-        return film;
+    public int getShowId() {return showId;}
+
+    public int getFilm() {
+        return movieId;
     }
 
-    public Room getRoom() {
+    public int getRoom() {
         return room;
     }
 
-    public LocalDateTime getDateTime() {
+    public String getDateTime() {
         return dateTime;
     }
+
 }

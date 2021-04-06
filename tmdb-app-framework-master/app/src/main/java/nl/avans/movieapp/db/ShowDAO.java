@@ -6,8 +6,8 @@ public class ShowDAO {
         return "SELECT COUNT(*) FROM Show";
     }
 
-    public String selectDateTimeShow(int movieId){
-        return "SELECT DateTime FROM Show WHERE FilmId = " + movieId;
+    public String selectShow(int movieId){
+        return "SELECT * FROM Show WHERE FilmId = " + movieId;
     }
 
     public String selectMovieIdShows(){
