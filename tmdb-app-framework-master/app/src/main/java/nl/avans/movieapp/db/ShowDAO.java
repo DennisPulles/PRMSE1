@@ -11,7 +11,7 @@ public class ShowDAO {
     }
 
     public String insertShow(int showId, int movieId, int roomNr, String dateTime){
-        return "INSERT INTO Show VALUES (" + showId + "," + movieId + "," + roomNr + "," + dateTime + ")";
+        return "INSERT INTO Show VALUES (" + showId + "," + movieId + "," + roomNr + ", '" + dateTime + "')";
     }
 
 }
