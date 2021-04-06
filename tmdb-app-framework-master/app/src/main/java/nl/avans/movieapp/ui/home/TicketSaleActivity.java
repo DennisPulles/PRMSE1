@@ -23,6 +23,7 @@ import java.util.List;
 
 import nl.avans.movieapp.R;
 import nl.avans.movieapp.db.ChairDAO;
+import nl.avans.movieapp.db.ShowDAO;
 import nl.avans.movieapp.db.SqlManager;
 import nl.avans.movieapp.domain.Chair;
 
@@ -39,6 +40,12 @@ public class TicketSaleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ticket_sale);
 
+
+        Intent ticketIntent = getIntent();
+        int movieId = ticketIntent.getIntExtra("movieId", 0);
+        String movieTitle = ticketIntent.getStringExtra("movieTitle");
+        String moviePoster = ticketIntent.getStringExtra("moviePoster");
+
         ChairDAO chairs = new ChairDAO();
         SqlManager sqlManager = new SqlManager();
         ResultSet resultSet;
@@ -54,12 +61,19 @@ public class TicketSaleActivity extends AppCompatActivity {
             throwables.printStackTrace();
         }
 
-        showList.add("Show1");
-        showList.add("Show2");
+        ShowDAO showDAO = new ShowDAO();
+        ResultSet resultSet1;
 
-        Intent ticketIntent = getIntent();
-        String movieTitle = ticketIntent.getStringExtra("movieTitle");
-        String moviePoster = ticketIntent.getStringExtra("moviePoster");
+        resultSet1 = sqlManager.executeSql(showDAO.selectDateTimeShow(movieId));
+
+        try {
+            while (resultSet1.next()){
+                showList.add(resultSet1.getString(1));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
 
         ImageView posterView = findViewById(R.id.image_view_film_ticket_image);
         TextView filmTitle = findViewById(R.id.text_view_film_ticket_title);

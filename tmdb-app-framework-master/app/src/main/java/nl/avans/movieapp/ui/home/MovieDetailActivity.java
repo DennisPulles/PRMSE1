@@ -101,15 +101,15 @@ public class MovieDetailActivity extends YouTubeBaseActivity{
         filmDescription.setText(movieDescription);
 
         //Dit zijn genre ids, moet even uitvogelen hoe je die omzet naar genre-namen.
-        String genreIds = null;
-        for (int i = 0; i<movieGenreIds.length; i++) {
-            if (i==0) {
-                genreIds = Integer.toString(movieGenreIds[i]);
-            } else {
-                genreIds += ", " + Integer.toString(movieGenreIds[i]);
-            }
-        }
-        filmGenres.setText("Genres: " + genreIds);
+//        String genreIds = null;
+//        for (int i = 0; i<movieGenreIds.length; i++) {
+//            if (i==0) {
+//                genreIds = Integer.toString(movieGenreIds[i]);
+//            } else {
+//                genreIds += ", " + Integer.toString(movieGenreIds[i]);
+//            }
+//        }
+//        filmGenres.setText("Genres: " + genreIds);
 
         SqlManager sqlManager = new SqlManager();
         Log.d(TAG, "onCreate: manager made");
@@ -166,13 +166,14 @@ public class MovieDetailActivity extends YouTubeBaseActivity{
 
         ticketButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
-                openTicketSale(movieTitle, moviePoster);
+                openTicketSale(movieTitle, moviePoster, movieId);
             }
         });
     }
 
-    public void openTicketSale(String movieTitle, String moviePoster) {
+    public void openTicketSale(String movieTitle, String moviePoster, int movieId) {
         Intent ticketIntent = new Intent(this, TicketSaleActivity.class);
+        ticketIntent.putExtra("movieId", movieId);
         ticketIntent.putExtra("movieTitle", movieTitle);
         ticketIntent.putExtra("moviePoster", moviePoster);
         startActivity(ticketIntent);
