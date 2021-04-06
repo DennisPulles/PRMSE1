@@ -3,18 +3,18 @@ package nl.avans.movieapp.domain;
 public class Chair {
 
     private int chairNr;
-    private Room room;
+    private int roomNr;
 
-    public Chair(int chairNr, Room room) {
+    public Chair(int chairNr, int roomNr) {
         this.chairNr = chairNr;
-        this.room = room;
+        this.roomNr = roomNr;
     }
 
     public int getChairNr() {
         return chairNr;
     }
 
-    public Room getRoom() {
-        return room;
+    public int getRoomNr() {
+        return roomNr;
     }
 }
