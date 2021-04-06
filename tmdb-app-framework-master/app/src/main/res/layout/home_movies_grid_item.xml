@@ -14,11 +14,11 @@
         android:background="@color/white"
         android:id="@+id/home_movies_griditem_imageurl"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/home_movies_griditem_name"
-        android:padding="6sp"
-        android:textSize="18sp"/>
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/home_movies_griditem_name"-->
+<!--        android:padding="6sp"-->
+<!--        android:textSize="18sp"/>-->
 
 </LinearLayout>

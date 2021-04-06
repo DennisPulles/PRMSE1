@@ -93,7 +93,7 @@ public class HomeGridAdapter
 
         public MoviesGridViewHolder(@NonNull View itemView) {
             super(itemView);
-            mMovieName = (TextView) itemView.findViewById(R.id.home_movies_griditem_name);
+           // mMovieName = (TextView) itemView.findViewById(R.id.home_movies_griditem_name);
             mMovieImage = (ImageView) itemView.findViewById(R.id.home_movies_griditem_imageurl);
 
             itemView.setOnClickListener(this);
