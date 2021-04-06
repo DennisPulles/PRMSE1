@@ -21,7 +21,7 @@
             android:background="@drawable/search_bg"
             android:drawableStart="@drawable/ic_baseline_search_24"
             android:hint="@string/queryHintSearch"
-            android:padding="16dp"
+
             android:paddingStart="16dp"
             android:singleLine="true"
             app:layout_constraintEnd_toStartOf="@+id/home_movies_grid"
