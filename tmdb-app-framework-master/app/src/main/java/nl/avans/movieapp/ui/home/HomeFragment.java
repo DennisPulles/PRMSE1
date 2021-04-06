@@ -2,29 +2,25 @@ package nl.avans.movieapp.ui.home;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Random;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import java.util.ArrayList;
+
 import nl.avans.movieapp.R;
 import nl.avans.movieapp.controller.MovieController;
-import nl.avans.movieapp.db.ShowDAO;
-import nl.avans.movieapp.db.SqlManager;
 import nl.avans.movieapp.domain.Movie;
-import nl.avans.movieapp.domain.Show;
 
 import static android.content.res.Configuration.ORIENTATION_LANDSCAPE;
 import static android.content.res.Configuration.ORIENTATION_PORTRAIT;
@@ -38,6 +34,7 @@ public class HomeFragment
     private final ArrayList<Movie> mMovies = new ArrayList<>();
     private RecyclerView mRecyclerView;
     private HomeGridAdapter mMoviesGridAdapter;
+    private EditText searchText;
 
     private static final int ONE_COLUMN = 1;
     private static final int TWO_COLUMNS = 2;
@@ -86,7 +83,35 @@ public class HomeFragment
                     }
                 }
         );
+        searchText = root.findViewById(R.id.editText);
+        searchText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                filter(s.toString().toLowerCase());
+            }
+        });
         return root;
+    }
+
+    private void filter(String text) {
+        Log.d(TAG, "filter: Called");
+        ArrayList<Movie> filteredList = new ArrayList<>();
+        for (Movie bbCharacter: mMovies){
+            if (bbCharacter.getTitle().toLowerCase().contains(text)){
+                filteredList.add(bbCharacter);
+            }
+        }
+        mMoviesGridAdapter.filterList(filteredList);
     }
 
     @Override

@@ -6,12 +6,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.squareup.picasso.Picasso;
-import java.util.ArrayList;
-import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import nl.avans.movieapp.R;
 import nl.avans.movieapp.controller.MovieController;
 import nl.avans.movieapp.domain.Movie;
@@ -24,13 +27,17 @@ public class HomeGridAdapter
         implements MovieController.MovieControllerListener {
 
     private final String TAG = this.getClass().getSimpleName();
-    private final ArrayList<Movie> moviesArrayList;
+    private ArrayList<Movie> moviesArrayList;
     private OnMovieSelectionListener listener;
 
     public HomeGridAdapter(ArrayList<Movie> moviesArrayList, OnMovieSelectionListener listener) {
         Log.d(TAG, "Constructor aangeroepen");
         this.moviesArrayList = moviesArrayList;
         this.listener = listener;
+    }
+
+    public ArrayList<Movie> getMoviesArrayList() {
+        return moviesArrayList;
     }
 
     @NonNull
@@ -69,6 +76,13 @@ public class HomeGridAdapter
 
         this.moviesArrayList.clear();
         this.moviesArrayList.addAll(movies);
+        notifyDataSetChanged();
+    }
+
+    public void filterList(ArrayList<Movie> filteredList) {
+        Log.d(TAG, "filterList: Called filtered"+filteredList.size());
+
+        moviesArrayList = filteredList;
         notifyDataSetChanged();
     }
 

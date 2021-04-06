@@ -4,11 +4,15 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
 import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
 import java.util.List;
+
 import nl.avans.movieapp.domain.Movie;
-import nl.avans.movieapp.service.MovieApiResponse;
 import nl.avans.movieapp.service.MovieAPI;
+import nl.avans.movieapp.service.MovieApiResponse;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -72,5 +76,7 @@ public class MovieController implements Callback<MovieApiResponse> {
 
     public interface MovieControllerListener {
         public void onMoviesAvailable(List<Movie> movies);
+
+        void filterList(ArrayList<Movie> filteredList);
     }
 }
