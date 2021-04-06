@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:layout_margin="5sp"
         android:padding="2sp"
-        android:background="@color/black"
+        android:background="@color/white"
         android:id="@+id/home_movies_griditem_imageurl"/>
 
     <TextView
