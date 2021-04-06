@@ -30,7 +30,7 @@
     <fragment
         android:id="@+id/nav_film_ticket"
         android:name="nl.avans.movieapp.ui.ticket.TicketFragment"
-        android:label="@string/menu_film_list"
+        android:label="@string/Tickets"
         tools:layout="@layout/fragment_film_ticket" />
 
 </navigation>
