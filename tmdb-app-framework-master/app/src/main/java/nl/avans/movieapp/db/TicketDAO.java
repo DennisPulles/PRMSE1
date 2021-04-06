@@ -6,4 +6,8 @@ public class TicketDAO {
         return "INSERT INTO Ticket (ChairNr, ShowId, Username, RoomNr) Values (" + chairNr + "," + showID + ",'Erik'," + roomNr + ")";
     }
 
+    public String getAllTickets(){
+        return "SELECT * FROM Ticket";
+    }
+
 }
